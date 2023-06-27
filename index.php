@@ -28,6 +28,8 @@ use Slim\Factory\AppFactory;
 $app = AppFactory::create();
 
 // Handle POST request to '/submit' route
+
+$app->addBodyParsingMiddleware();
 $app->post('/submit', function (Request $request, Response $response) {
     // Access the submitted data
     $data = $request->getParsedBody();
