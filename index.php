@@ -18,3 +18,28 @@ $app->get('/destination', function (Request $request, Response $response) {
 });
 
 $app->run();
+
+
+
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Factory\AppFactory;
+
+$app = AppFactory::create();
+
+// Handle POST request to '/submit' route
+$app->post('/submit', function (Request $request, Response $response) {
+    // Access the submitted data
+    $data = $request->getParsedBody();
+
+    // Process the submitted data
+    $name = $data['name'];
+    $email = $data['email'];
+
+    // Perform actions with the submitted data (e.g., save to a database)
+
+    // Return a response
+    return $response->getBody()->write("Submitted data: Name = $name, Email = $email");
+});
+
+$app->run();
