@@ -1,3 +1,17 @@
+
+
+use Slim\Factory\AppFactory;
+use Slim\Middleware\Assets;
+
+$app = AppFactory::create();
+
+$app->add(Assets::class, ['assets' => '/path/to/public']);
+
+
+<link rel="stylesheet" href="{{ base_url() }}/css/styles.css">
+
+
+
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
