@@ -1,4 +1,17 @@
 
+use Slim\Factory\AppFactory;
+use Slim\Middleware\Assets;
+
+$app = AppFactory::create();
+
+$app->add(Assets::class, [
+    'basePath' => '/path/to/public',
+    'baseUrl' => '/',
+]);
+
+
+<link rel="stylesheet" href="/css/styles.css">
+
 
 use Slim\Factory\AppFactory;
 use Slim\Middleware\Assets;
